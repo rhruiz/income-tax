@@ -14,23 +14,16 @@ defmodule IR.Methods.Reducer do
     end
 
     compute_max_rate = fn
-      (acc, last_step) when salary > last_step ->
+      ({last_step, acc}) when salary > last_step ->
         acc + (salary - last_step) * max_rate
 
-      (acc, _) ->
+      ({_, acc}) ->
         acc
     end
 
-    compute = Enum.reduce steps, {0.0, 0.0}, tax_reducer
-
-    last_step =
-      steps
-      |> List.last
-      |> elem(0)
-
-    compute
-    |> elem(1)
-    |> compute_max_rate.(last_step)
+    steps
+    |> Enum.reduce({0.0, 0.0}, tax_reducer)
+    |> compute_max_rate.()
     |> Float.round(2)
   end
 end
