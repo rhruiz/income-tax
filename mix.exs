@@ -29,6 +29,7 @@ defmodule IR.Mixfile do
   defp deps do
     [
       {:quixir, only: [:test]},
+      {:propcheck, only: [:test]},
     ]
   end
 end
