@@ -7,6 +7,7 @@ defmodule IR.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     preferred_cli_env: [espec: :test],
      deps: deps()]
   end
 
@@ -30,6 +31,7 @@ defmodule IR.Mixfile do
     [
       {:quixir, only: [:test]},
       {:propcheck, only: [:test]},
+      {:espec, only: [:test]},
     ]
   end
 end
