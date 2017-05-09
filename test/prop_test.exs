@@ -1,4 +1,4 @@
-defmodule IrPropertiesTest do
+defmodule IrPropTest do
   use ExUnit.Case
   use PropCheck
 
