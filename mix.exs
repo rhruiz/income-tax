@@ -28,6 +28,7 @@ defmodule IR.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
+      {:quixir, only: [:test]},
     ]
   end
 end
